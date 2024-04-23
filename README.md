@@ -13,7 +13,7 @@ Mi portafolio.
 Clone the project
 
 ```bash
-  git clone https://gitlab.com/migrupo6011016/todoweb.git
+  git clone https://gitlab.com/migrupo6011016/portfolio.git
 ```
 
 Go to the project directory
