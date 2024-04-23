@@ -1,8 +1,7 @@
 
-# Todo Web
+# Portfolio
 
-Pagina Web para organizar y agendar actividades y tareas pendientes.
-
+Mi portafolio.
 
 ## License
 
@@ -30,13 +29,13 @@ Create Virtual Enviroment
 
 Activate Virtual Enviroment
 ```bash
-  .\venv\Scripts\activate
+  ./venv/Scripts/activate
 ```
 
 Install dependencies
 
 ```bash
-  pip install -r ".\requirements.txt"
+  pip install -r "./requirements.txt"
 ```
 
 Start the server
