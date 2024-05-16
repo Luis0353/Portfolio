@@ -54,3 +54,6 @@ def signin(request):
         else:
             login(request, user)
             return redirect('logged')
+
+def about(request):
+    return render(request, 'about.html')
