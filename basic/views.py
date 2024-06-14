@@ -3,11 +3,16 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError 
+from .models import Project
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    projects = Project.objects.all()
+    return render(request, 'home.html', {
+        "projects" : projects
+    })
+
 
 def register(request):
     if request.method == 'GET':
@@ -20,7 +25,7 @@ def register(request):
                 user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request,user)
-                return redirect('logged')
+                return redirect('home')
             except IntegrityError:
                return render(request, 'register.html', {
                 'form' : UserCreationForm,
@@ -31,9 +36,6 @@ def register(request):
             'form' : UserCreationForm,
             'error' : 'Las Contrasenas no coinciden'
         })
-
-def logged(request):
-    return render(request, 'logged.html')
 
 def signout(request):
     logout(request)
@@ -53,7 +55,7 @@ def signin(request):
             })
         else:
             login(request, user)
-            return redirect('logged')
+            return redirect('home')
 
 def about(request):
     return render(request, 'about.html')
