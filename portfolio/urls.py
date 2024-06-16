@@ -28,4 +28,5 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('create/', views.create, name='createw'),
     path('project_details/<int:project_id>', views.project_details, name='project_details'),
+    path('project_details/<int:project_id>/delete', views.delete_project, name='delete_project'),
 ]

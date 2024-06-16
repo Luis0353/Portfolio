@@ -2,9 +2,43 @@
 
 {% block content %}
 
-<h1>{{ project.title }}</h1>
-<p>{{ project.description }}</p>
-<iframe src={{ project.sources }}  allowfullscreen="" ></iframe>
+<div class="card card-body">
+    <h1>{{ error }}</h1>
+
+    <h1 class="text-center">{{ project.title }}</h1>
+    <p class="text-center">{{ project.description }}</p>
+    <div class="container text-center">
+        <iframe src={{ project.sources }}  allowfullscreen="" ></iframe>
+    </div>
+</div>
+
+<br>
+<br>
+
+<div class="card card-body">
+    {% if user.is_superuser %}
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <br>
+        
+        <button class="btn btn-warning">
+            Update
+        </button>
+    </form>
+
+    <form action="{% url 'delete_project' project.id %}" method="POST">
+        {% csrf_token %}
+
+        <button class="btn btn-danger">
+            Delete
+        </button>
+    </form>
+{% endif %}
+
+</div>
 
 {% endblock %}
 

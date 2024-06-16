@@ -2,20 +2,26 @@
 
 {% block content %}
 
-<h1>Home</h1>
+<div class="card card-body">
+    <h1 class="text-center">Projects</h1>
 
 {% if user.is_authenticated %}
     {% for project in projects %}
-    
-        <ul>
-            <li>
-                <a href="{% url 'project_details' project.id %}"> {{ project.title }}</a>
-            </li>
-        </ul>
+
+        <div class="list-group">
+            <a href="{% url 'project_details' project.id %}" class="list-group-item list-group-item-action active"> {{ project.title }}</a>
+        </div>
 
     {% endfor %}
 
+{% else %}
+
+        <p class="text-center">Por favor inicie sesion para poder ver los projectos</p>
+
 {% endif %}
+</div>
+
+
 
 
 {% endblock %}

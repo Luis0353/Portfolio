@@ -2,13 +2,24 @@
 
 {% block content %}
 
-<h1>Sign In</h1>
-    <h2>{{error}}</h2>
-<form action="/signin/" method="POST">
+<form action="/signin/" method="POST" class="card card-body">
+    <h1 class="text-center">Sign In</h1>
+    <h1>{{ error }}</h1>
     {% csrf_token %}
 
-    {{ form.as_p }}
-    <button>
+    <div class="mb-3">
+        <label for="username">Username: </label>
+        <input type="text" name="username" id="username"
+        class="form-control" placeholder="Write your Username">
+    </div>
+
+    <div class="mb-3">
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password"
+        class="form-control" placeholder="Write your Password">
+    </div>
+
+    <button class="btn btn-primary"> 
         Sign In
     </button>
 </form>
