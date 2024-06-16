@@ -74,23 +74,8 @@ def create(request):
         return redirect('home')
 
 def project_details(request, project_id):
-    if request.method == 'GET':
-        project = get_object_or_404(Project, pk=project_id)
-        form = ProjectForm(instance=project)
-        return render(request, 'project_details.html', {
-            'project' : project,
-            'form' : form
-        })
-    else:
-        try:
-            project = get_object_or_404(Project, pk=project_id)
-            form = ProjectForm(request.POST,instance=project)
-            form.save()
-            return redirect('home') 
-        except ValueError:
-            return render(request, 'project_details.html', {
-            'project' : project,
-            'form' : form,
-            'error' : 'Error al Actualizar los Datos'
-        })
+    project = get_object_or_404(Project, pk=project_id)
+    return render(request, 'project_details.html', {
+        'project' : project
+    })
 
