@@ -23,12 +23,12 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str('SECRET_KEY')
+SECRET_KEY = 'uao)ekbm-)+=1vvxe@vd^uxqf0t^zkt6d-#5&=aq6i6h5=+q5q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default = False)
+DEBUG = False
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default = [])
+ALLOWED_HOSTS = ['.vercel.app']
 
 # Application definition
 
