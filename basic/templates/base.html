@@ -19,6 +19,11 @@
                 </li>
                 
                 {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                    <li>
+                        <a href="/create">Create Projects</a>
+                    </li>
+                    {% endif %}
                 <li>
                     <a href="/logout">Logout</a>
                 </li>
